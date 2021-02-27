@@ -38,3 +38,13 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 8283)
 
 
+Started GET "/" for ::1 at 2021-02-28 08:16:32 +0900
+Processing by MessagesController#index as HTML
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered messages/_main_chat.html.erb (Duration: 0.3ms | Allocations: 80)
+  Rendered messages/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 694)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 9183)
+
+
