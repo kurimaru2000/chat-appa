@@ -59,3 +59,14 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 9338)
 
 
+Started GET "/" for ::1 at 2021-02-28 09:09:09 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by MessagesController#index as HTML
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.4ms | Allocations: 102)
+  Rendered messages/_main_chat.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered messages/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 776)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.0ms | Allocations: 14498)
+
+
