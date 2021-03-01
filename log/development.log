@@ -6098,3 +6098,502 @@ FOREIGN KEY (`blob_id`)
   [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8617640504667222525')[0m
   [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2021-03-01 19:13:53 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (6.0ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 25.3ms | Allocations: 9835)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 26.4ms | Allocations: 10285)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 993ms (Views: 955.1ms | ActiveRecord: 14.8ms | Allocations: 1519797)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-01 19:13:56 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 4896)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 14.1ms | ActiveRecord: 6.5ms | Allocations: 15593)
+
+
+Started POST "/rooms" for ::1 at 2021-03-01 19:13:59 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"TeMVJeChy5GjNAgppfRv9j5lrn2lsru8+0TDq4DK7ctBwJX+7G4BCbd1Bo+wIoxpWSBF/WPKOWsHsWxdaKQh1A==", "room"=>{"name"=>"macmac", "user_ids"=>["1", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Create (2.4ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('macmac', '2021-03-01 10:13:59.747327', '2021-03-01 10:13:59.747327')[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoomUser Create (0.3ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (14, 1, '2021-03-01 10:13:59.752340', '2021-03-01 10:13:59.752340')[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoomUser Create (0.7ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (14, 2, '2021-03-01 10:13:59.753644', '2021-03-01 10:13:59.753644')[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 5.8ms | Allocations: 21687)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:13:59 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.3ms | Allocations: 1135)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1210)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.7ms | Allocations: 9428)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:02 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 1.3ms | Allocations: 9445)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:05 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.5ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.9ms | Allocations: 9437)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:05 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (1.0ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.3ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 1.5ms | Allocations: 9428)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:06 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.8ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 1.0ms | Allocations: 9402)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:06 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.9ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 1.0ms | Allocations: 9414)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:06 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.9ms | Allocations: 9424)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:06 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.4ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.8ms | Allocations: 9406)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:07 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.7ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.9ms | Allocations: 9416)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:07 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.1ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 1.2ms | Allocations: 9426)
+
+
+Started GET "/rooms/14/messages" for ::1 at 2021-03-01 19:14:08 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.2ms | Allocations: 1132)
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 14[0m
+  ↳ app/views/messages/_main_chat.html.erb:15
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 3.9ms | Allocations: 2240)
+  Rendered messages/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3777)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 11.0ms | ActiveRecord: 3.6ms | Allocations: 19489)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:36 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.9ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 3.1ms | Allocations: 1130)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.3ms | ActiveRecord: 1.7ms | Allocations: 9426)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:39 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.0ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 1.1ms | Allocations: 9414)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:45 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.4ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.8ms | Allocations: 9410)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:46 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 1.1ms | Allocations: 9430)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:47 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.8ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.9ms | Allocations: 9422)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:48 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.5ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.8ms | Allocations: 9406)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:49 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.0ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 1.0ms | Allocations: 10481)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:49 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.7ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 1.3ms | Allocations: 9424)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:49 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 0.9ms | Allocations: 9428)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:49 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.9ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.3ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 2.0ms | Allocations: 9424)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:49 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.6ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 1.7ms | Allocations: 9438)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:50 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.1ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 1.0ms | Allocations: 9404)
+
+
+Started GET "/" for ::1 at 2021-03-01 19:14:50 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1122)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.9ms | Allocations: 9416)
+
+
+Started GET "/rooms/14/messages" for ::1 at 2021-03-01 19:14:52 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"14"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.4ms | Allocations: 1126)
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 14[0m
+  ↳ app/views/messages/_main_chat.html.erb:15
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.8ms | Allocations: 1280)
+  Rendered messages/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2542)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 1.6ms | Allocations: 11528)
+
+
+Started GET "/rooms/14/messages" for ::1 at 2021-03-01 19:14:53 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.5ms | Allocations: 1123)
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 14[0m
+  ↳ app/views/messages/_main_chat.html.erb:15
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.5ms | Allocations: 1276)
+  Rendered messages/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2535)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 1.4ms | Allocations: 11554)
+
+
+Started POST "/rooms/14/messages" for ::1 at 2021-03-01 19:15:16 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"authenticity_token"=>"F0FVOJva55PdJvNiuMU720KT/4eQkqV27EbCpSkd7Z3bOu0qWoqqzzb3Px36q95tbMuiBbfO+Kp2dgQ/VABDXg==", "message"=>{"content"=>"てすと３", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fcb2401e7c0 @tempfile=#<Tempfile:/var/folders/_t/nplphvtj59x8tb1k7vtdc1yh0000gn/T/RackMultipart20210301-50171-1uggufq.jpg>, @original_filename="pexels-lukas-hartmann-1462011.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"pexels-lukas-hartmann-1462011.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"送信", "room_id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[36mMessage Create (3.1ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `room_id`, `user_id`, `created_at`, `updated_at`) VALUES ('てすと３', 14, 2, '2021-03-01 10:15:16.769942', '2021-03-01 10:15:16.769942')[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` INNER JOIN `active_storage_attachments` ON `active_storage_blobs`.`id` = `active_storage_attachments`.`blob_id` WHERE `active_storage_attachments`.`record_id` = 11 AND `active_storage_attachments`.`record_type` = 'Message' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Load (3.8ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 11 AND `active_storage_attachments`.`record_type` = 'Message' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO `active_storage_blobs` (`key`, `filename`, `content_type`, `metadata`, `byte_size`, `checksum`, `created_at`) VALUES ('2t47nc9v36f7xqnwdyixvxo5iivu', 'pexels-lukas-hartmann-1462011.jpg', 'image/jpeg', '{\"identified\":true}', 1940026, '9A/rfft4ziebq5lS80mW8Q==', '2021-03-01 10:15:16')[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO `active_storage_attachments` (`name`, `record_type`, `record_id`, `blob_id`, `created_at`) VALUES ('image', 'Message', 11, 1, '2021-03-01 10:15:16')[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[36mMessage Update (5.6ms)[0m  [1m[33mUPDATE `messages` SET `messages`.`updated_at` = '2021-03-01 10:15:16.860560' WHERE `messages`.`id` = 11[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:11:in `create'
+[36m  Disk Storage (6.7ms) [0m[32mUploaded file to key: 2t47nc9v36f7xqnwdyixvxo5iivu (checksum: 9A/rfft4ziebq5lS80mW8Q==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c334ea2c-d326-43e0-bffa-cc5da43c5d15) to Async(active_storage_analysis) with arguments: #<GlobalID:0x00007fcb58637560 @uri=#<URI::GID gid://chat-app/ActiveStorage::Blob/1>>
+Redirected to http://localhost:3000/rooms/14/messages
+Completed 302 Found in 129ms (ActiveRecord: 19.4ms | Allocations: 76706)
+
+
+Started GET "/rooms/14/messages" for ::1 at 2021-03-01 19:15:16 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"14"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  Rendered messages/_side_bar.html.erb (Duration: 1.7ms | Allocations: 1217)
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 14[0m
+  ↳ app/views/messages/_main_chat.html.erb:15
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c334ea2c-d326-43e0-bffa-cc5da43c5d15] Performing ActiveStorage::AnalyzeJob (Job ID: c334ea2c-d326-43e0-bffa-cc5da43c5d15) from Async(active_storage_analysis) enqueued at 2021-03-01T10:15:16Z with arguments: #<GlobalID:0x00007fcb261deae0 @uri=#<URI::GID gid://chat-app/ActiveStorage::Blob/1>>
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:15
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c334ea2c-d326-43e0-bffa-cc5da43c5d15] [36m  Disk Storage (1.7ms) [0m[34mDownloaded file from key: 2t47nc9v36f7xqnwdyixvxo5iivu[0m
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 11 AND `active_storage_attachments`.`record_type` = 'Message' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/views/messages/_message.html.erb:17
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/messages/_message.html.erb:17
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 4.6ms | Allocations: 2824)
+  Rendered messages/_main_chat.html.erb (Duration: 9.3ms | Allocations: 6775)
+  Rendered messages/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 8990)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 34.9ms | ActiveRecord: 2.6ms | Allocations: 18136)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ba02803914b8fc7cd27a046eefc94a6599097872/pexels-lukas-hartmann-1462011.jpg" for ::1 at 2021-03-01 19:15:16 +0900
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ba02803914b8fc7cd27a046eefc94a6599097872", "filename"=>"pexels-lukas-hartmann-1462011"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+[36m  Disk Storage (2.7ms) [0m[34mGenerated URL for file at key: 2t47nc9v36f7xqnwdyixvxo5iivu (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGVHVnNjeTFzZFd0aGN5MW9ZWEowYldGdWJpMHhORFl5TURFeExtcHdaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuY0dWNFpXeHpMV3gxYTJGekxXaGhjblJ0WVc1dUxURTBOakl3TVRFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUT0iLCJleHAiOiIyMDIxLTAzLTAxVDEwOjIwOjE2Ljk4OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--1e5b02b23caba84e675d35040025ca9ae76442f2/pexels-lukas-hartmann-1462011.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22pexels-lukas-hartmann-1462011.jpg%22%3B+filename%2A%3DUTF-8%27%27pexels-lukas-hartmann-1462011.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGVHVnNjeTFzZFd0aGN5MW9ZWEowYldGdWJpMHhORFl5TURFeExtcHdaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuY0dWNFpXeHpMV3gxYTJGekxXaGhjblJ0WVc1dUxURTBOakl3TVRFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUT0iLCJleHAiOiIyMDIxLTAzLTAxVDEwOjIwOjE2Ljk4OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--1e5b02b23caba84e675d35040025ca9ae76442f2/pexels-lukas-hartmann-1462011.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22pexels-lukas-hartmann-1462011.jpg%22%3B+filename%2A%3DUTF-8%27%27pexels-lukas-hartmann-1462011.jpg
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms | Allocations: 2406)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGVHVnNjeTFzZFd0aGN5MW9ZWEowYldGdWJpMHhORFl5TURFeExtcHdaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuY0dWNFpXeHpMV3gxYTJGekxXaGhjblJ0WVc1dUxURTBOakl3TVRFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUT0iLCJleHAiOiIyMDIxLTAzLTAxVDEwOjIwOjE2Ljk4OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--1e5b02b23caba84e675d35040025ca9ae76442f2/pexels-lukas-hartmann-1462011.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22pexels-lukas-hartmann-1462011.jpg%22%3B+filename%2A%3DUTF-8%27%27pexels-lukas-hartmann-1462011.jpg" for ::1 at 2021-03-01 19:15:16 +0900
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"pexels-lukas-hartmann-1462011.jpg\"; filename*=UTF-8''pexels-lukas-hartmann-1462011.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGVHVnNjeTFzZFd0aGN5MW9ZWEowYldGdWJpMHhORFl5TURFeExtcHdaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuY0dWNFpXeHpMV3gxYTJGekxXaGhjblJ0WVc1dUxURTBOakl3TVRFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUT0iLCJleHAiOiIyMDIxLTAzLTAxVDEwOjIwOjE2Ljk4OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--1e5b02b23caba84e675d35040025ca9ae76442f2", "filename"=>"pexels-lukas-hartmann-1462011"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c334ea2c-d326-43e0-bffa-cc5da43c5d15]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c334ea2c-d326-43e0-bffa-cc5da43c5d15]   [1m[36mActiveStorage::Blob Update (1.5ms)[0m  [1m[33mUPDATE `active_storage_blobs` SET `active_storage_blobs`.`metadata` = '{\"identified\":true,\"width\":5830,\"height\":3886,\"analyzed\":true}' WHERE `active_storage_blobs`.`id` = 1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c334ea2c-d326-43e0-bffa-cc5da43c5d15]   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c334ea2c-d326-43e0-bffa-cc5da43c5d15] Performed ActiveStorage::AnalyzeJob (Job ID: c334ea2c-d326-43e0-bffa-cc5da43c5d15) from Async(active_storage_analysis) in 2902.26ms
+Started GET "/rooms/14/messages" for ::1 at 2021-03-01 19:19:04 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"14"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 2.5ms | Allocations: 1328)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 14[0m
+  ↳ app/views/messages/_main_chat.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:15
+  [1m[36mActiveStorage::Attachment Load (1.5ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 11 AND `active_storage_attachments`.`record_type` = 'Message' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/views/messages/_message.html.erb:17
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/messages/_message.html.erb:17
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 20.7ms | Allocations: 5602)
+  Rendered messages/_main_chat.html.erb (Duration: 24.6ms | Allocations: 8401)
+  Rendered messages/index.html.erb within layouts/application (Duration: 28.4ms | Allocations: 10266)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 40.4ms | ActiveRecord: 4.7ms | Allocations: 20199)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ba02803914b8fc7cd27a046eefc94a6599097872/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTlRBd2VEVXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e185dc9802ddfcbafa210ae55de743c35241e648/pexels-lukas-hartmann-1462011.jpg" for ::1 at 2021-03-01 19:19:04 +0900
+Processing by ActiveStorage::RepresentationsController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ba02803914b8fc7cd27a046eefc94a6599097872", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTlRBd2VEVXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e185dc9802ddfcbafa210ae55de743c35241e648", "filename"=>"pexels-lukas-hartmann-1462011"}
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+[36m  Disk Storage (0.0ms) [0m[34mChecked if file exists at key: variants/2t47nc9v36f7xqnwdyixvxo5iivu/0c4ca38b35ef53d81ca9658e79551160c0aa69ad50fddedf13c5fa1f60fae1a3 (no)[0m
+[36m  Disk Storage (1.4ms) [0m[34mDownloaded file from key: 2t47nc9v36f7xqnwdyixvxo5iivu[0m
+[36m  Disk Storage (2.0ms) [0m[32mUploaded file to key: variants/2t47nc9v36f7xqnwdyixvxo5iivu/0c4ca38b35ef53d81ca9658e79551160c0aa69ad50fddedf13c5fa1f60fae1a3[0m
+[36m  Disk Storage (1.1ms) [0m[34mGenerated URL for file at key: variants/2t47nc9v36f7xqnwdyixvxo5iivu/0c4ca38b35ef53d81ca9658e79551160c0aa69ad50fddedf13c5fa1f60fae1a3 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUzh3WXpSallUTTRZak0xWldZMU0yUTRNV05oT1RZMU9HVTNPVFUxTVRFMk1HTXdZV0UyT1dGa05UQm1aR1JsWkdZeE0yTTFabUV4WmpZd1ptRmxNV0V6QmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKdGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWNHVjRaV3h6TFd4MWEyRnpMV2hoY25SdFlXNXVMVEUwTmpJd01URXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlkd1pYaGxiSE10YkhWcllYTXRhR0Z5ZEcxaGJtNHRNVFEyTWpBeE1TNXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAyMS0wMy0wMVQxMDoyNDowNS40NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--eaa2d803960239e6d900d592ba8f86f4833f0a6e/pexels-lukas-hartmann-1462011.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22pexels-lukas-hartmann-1462011.jpg%22%3B+filename%2A%3DUTF-8%27%27pexels-lukas-hartmann-1462011.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUzh3WXpSallUTTRZak0xWldZMU0yUTRNV05oT1RZMU9HVTNPVFUxTVRFMk1HTXdZV0UyT1dGa05UQm1aR1JsWkdZeE0yTTFabUV4WmpZd1ptRmxNV0V6QmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKdGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWNHVjRaV3h6TFd4MWEyRnpMV2hoY25SdFlXNXVMVEUwTmpJd01URXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlkd1pYaGxiSE10YkhWcllYTXRhR0Z5ZEcxaGJtNHRNVFEyTWpBeE1TNXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAyMS0wMy0wMVQxMDoyNDowNS40NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--eaa2d803960239e6d900d592ba8f86f4833f0a6e/pexels-lukas-hartmann-1462011.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22pexels-lukas-hartmann-1462011.jpg%22%3B+filename%2A%3DUTF-8%27%27pexels-lukas-hartmann-1462011.jpg
+Completed 302 Found in 868ms (ActiveRecord: 0.5ms | Allocations: 23166)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUzh3WXpSallUTTRZak0xWldZMU0yUTRNV05oT1RZMU9HVTNPVFUxTVRFMk1HTXdZV0UyT1dGa05UQm1aR1JsWkdZeE0yTTFabUV4WmpZd1ptRmxNV0V6QmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKdGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWNHVjRaV3h6TFd4MWEyRnpMV2hoY25SdFlXNXVMVEUwTmpJd01URXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlkd1pYaGxiSE10YkhWcllYTXRhR0Z5ZEcxaGJtNHRNVFEyTWpBeE1TNXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAyMS0wMy0wMVQxMDoyNDowNS40NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--eaa2d803960239e6d900d592ba8f86f4833f0a6e/pexels-lukas-hartmann-1462011.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22pexels-lukas-hartmann-1462011.jpg%22%3B+filename%2A%3DUTF-8%27%27pexels-lukas-hartmann-1462011.jpg" for ::1 at 2021-03-01 19:19:05 +0900
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"pexels-lukas-hartmann-1462011.jpg\"; filename*=UTF-8''pexels-lukas-hartmann-1462011.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNblEwTjI1ak9YWXpObVkzZUhGdWQyUjVhWGgyZUc4MWFXbDJkUzh3WXpSallUTTRZak0xWldZMU0yUTRNV05oT1RZMU9HVTNPVFUxTVRFMk1HTXdZV0UyT1dGa05UQm1aR1JsWkdZeE0yTTFabUV4WmpZd1ptRmxNV0V6QmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKdGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWNHVjRaV3h6TFd4MWEyRnpMV2hoY25SdFlXNXVMVEUwTmpJd01URXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlkd1pYaGxiSE10YkhWcllYTXRhR0Z5ZEcxaGJtNHRNVFEyTWpBeE1TNXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAyMS0wMy0wMVQxMDoyNDowNS40NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--eaa2d803960239e6d900d592ba8f86f4833f0a6e", "filename"=>"pexels-lukas-hartmann-1462011"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 445)
+
+
