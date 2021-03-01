@@ -6957,3 +6957,58 @@ Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 451)
 [ActiveJob] [ActiveStorage::AnalyzeJob] [acf4719b-4b6a-4d13-8d65-a78db9613e1f]   [1m[36mActiveStorage::Blob Update (1.1ms)[0m  [1m[33mUPDATE `active_storage_blobs` SET `active_storage_blobs`.`metadata` = '{\"identified\":true,\"width\":2363,\"height\":2363,\"analyzed\":true}' WHERE `active_storage_blobs`.`id` = 2[0m
 [ActiveJob] [ActiveStorage::AnalyzeJob] [acf4719b-4b6a-4d13-8d65-a78db9613e1f]   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
 [ActiveJob] [ActiveStorage::AnalyzeJob] [acf4719b-4b6a-4d13-8d65-a78db9613e1f] Performed ActiveStorage::AnalyzeJob (Job ID: acf4719b-4b6a-4d13-8d65-a78db9613e1f) from Async(active_storage_analysis) in 1059.23ms
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (8.1ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'colton@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('高木', 'colton@yahoo.com', '$2a$12$w9uH564ErlhjY0dMx.6C2.fCnYmw2HlFial.hjGdWgAIzksL/cmX2', '2021-03-01 11:46:04.043755', '2021-03-01 11:46:04.043755')[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (6.0ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('新潟県 sons', '2021-03-01 11:46:24.176874', '2021-03-01 11:46:24.176874')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'nathanial@hotmail.com' LIMIT 1[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('森田', 'nathanial@hotmail.com', '$2a$12$Th.bOq19Pv7o5rlJJwlQou9ds53IvO/pfNr/84XT0QEcdtTmB4Roy', '2021-03-01 11:46:31.101983', '2021-03-01 11:46:31.101983')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('佐賀県 cattle', '2021-03-01 11:46:31.127120', '2021-03-01 11:46:31.127120')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Create (4.8ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `room_id`, `user_id`, `created_at`, `updated_at`) VALUES ('継承報じる暴力とめる。', 18, 4, '2021-03-01 11:46:31.173157', '2021-03-01 11:46:31.173157')[0m
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 14 AND `active_storage_attachments`.`record_type` = 'Message' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO `active_storage_blobs` (`key`, `filename`, `content_type`, `metadata`, `byte_size`, `checksum`, `created_at`) VALUES ('g4ihx9inpp6vhhnxzui6ctgbmcoq', 'test_image.png', 'image/png', '{\"identified\":true}', 80164, 'X4rsjck3pgSn6r9zdhb4Fw==', '2021-03-01 11:46:31')[0m
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO `active_storage_attachments` (`name`, `record_type`, `record_id`, `blob_id`, `created_at`) VALUES ('image', 'Message', 14, 3, '2021-03-01 11:46:31')[0m
+  [1m[36mMessage Update (0.2ms)[0m  [1m[33mUPDATE `messages` SET `messages`.`updated_at` = '2021-03-01 11:46:31.182786' WHERE `messages`.`id` = 14[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (1.2ms) [0m[32mUploaded file to key: g4ihx9inpp6vhhnxzui6ctgbmcoq (checksum: X4rsjck3pgSn6r9zdhb4Fw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 86188873-86bb-4682-ab95-23b5f7276531) to Async(active_storage_analysis) with arguments: #<GlobalID:0x00007faede8271e0 @uri=#<URI::GID gid://chat-app/ActiveStorage::Blob/3>>
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 3 LIMIT 1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [86188873-86bb-4682-ab95-23b5f7276531] Performing ActiveStorage::AnalyzeJob (Job ID: 86188873-86bb-4682-ab95-23b5f7276531) from Async(active_storage_analysis) enqueued at 2021-03-01T11:46:31Z with arguments: #<GlobalID:0x00007faeddda1810 @uri=#<URI::GID gid://chat-app/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [86188873-86bb-4682-ab95-23b5f7276531] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: g4ihx9inpp6vhhnxzui6ctgbmcoq[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [86188873-86bb-4682-ab95-23b5f7276531]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [86188873-86bb-4682-ab95-23b5f7276531]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE `active_storage_blobs` SET `active_storage_blobs`.`metadata` = '{\"identified\":true,\"width\":400,\"height\":325,\"analyzed\":true}' WHERE `active_storage_blobs`.`id` = 3[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [86188873-86bb-4682-ab95-23b5f7276531]   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [86188873-86bb-4682-ab95-23b5f7276531] Performed ActiveStorage::AnalyzeJob (Job ID: 86188873-86bb-4682-ab95-23b5f7276531) from Async(active_storage_analysis) in 239.47ms
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'magan@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('山下', 'magan@yahoo.com', '$2a$12$BcHWzuEBRP4ywLjBd7EEj.D.1NEGK4tn3sKmbLuB53ZCZkkZ8vJw.', '2021-03-01 11:47:42.786065', '2021-03-01 11:47:42.786065')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('東京都 exorcists', '2021-03-01 11:47:42.799930', '2021-03-01 11:47:42.799930')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Create (0.8ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `room_id`, `user_id`, `created_at`, `updated_at`) VALUES ('恨みもはんじぎする約する。', 19, 5, '2021-03-01 11:47:42.813681', '2021-03-01 11:47:42.813681')[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 15 AND `active_storage_attachments`.`record_type` = 'Message' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO `active_storage_blobs` (`key`, `filename`, `content_type`, `metadata`, `byte_size`, `checksum`, `created_at`) VALUES ('yqzxvuwgzh99hh4t2tcoknvckpeu', 'test_image.png', 'image/png', '{\"identified\":true}', 80164, 'X4rsjck3pgSn6r9zdhb4Fw==', '2021-03-01 11:47:42')[0m
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO `active_storage_attachments` (`name`, `record_type`, `record_id`, `blob_id`, `created_at`) VALUES ('image', 'Message', 15, 4, '2021-03-01 11:47:42')[0m
+  [1m[36mMessage Update (0.2ms)[0m  [1m[33mUPDATE `messages` SET `messages`.`updated_at` = '2021-03-01 11:47:42.817703' WHERE `messages`.`id` = 15[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (1.2ms) [0m[32mUploaded file to key: yqzxvuwgzh99hh4t2tcoknvckpeu (checksum: X4rsjck3pgSn6r9zdhb4Fw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: df2c151c-c79d-46dd-b60b-fcb154154114) to Async(active_storage_analysis) with arguments: #<GlobalID:0x00007faedf996250 @uri=#<URI::GID gid://chat-app/ActiveStorage::Blob/4>>
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 4 LIMIT 1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [df2c151c-c79d-46dd-b60b-fcb154154114] Performing ActiveStorage::AnalyzeJob (Job ID: df2c151c-c79d-46dd-b60b-fcb154154114) from Async(active_storage_analysis) enqueued at 2021-03-01T11:47:42Z with arguments: #<GlobalID:0x00007faedc755ae8 @uri=#<URI::GID gid://chat-app/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [df2c151c-c79d-46dd-b60b-fcb154154114] [36m  Disk Storage (0.2ms) [0m[34mDownloaded file from key: yqzxvuwgzh99hh4t2tcoknvckpeu[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [df2c151c-c79d-46dd-b60b-fcb154154114]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [df2c151c-c79d-46dd-b60b-fcb154154114]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE `active_storage_blobs` SET `active_storage_blobs`.`metadata` = '{\"identified\":true,\"width\":400,\"height\":325,\"analyzed\":true}' WHERE `active_storage_blobs`.`id` = 4[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [df2c151c-c79d-46dd-b60b-fcb154154114]   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [df2c151c-c79d-46dd-b60b-fcb154154114] Performed ActiveStorage::AnalyzeJob (Job ID: df2c151c-c79d-46dd-b60b-fcb154154114) from Async(active_storage_analysis) in 127.45ms
