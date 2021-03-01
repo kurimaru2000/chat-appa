@@ -1114,3 +1114,163 @@ Processing by RoomsController#new as HTML
 Completed 200 OK in 44ms (Views: 36.8ms | ActiveRecord: 2.7ms | Allocations: 10939)
 
 
+Started GET "/rooms/new" for ::1 at 2021-03-01 12:20:11 +0900
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 4432)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 885ms (Views: 854.9ms | ActiveRecord: 11.2ms | Allocations: 1498522)
+
+
+Started POST "/rooms" for ::1 at 2021-03-01 12:20:42 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"FJXxi6lA52oAvqOPq1yBsxK1ph8Cr6Vp9OcE2Lm2eQthNe2gutkdDhytWiLJ/faqXg1GZVY62WRQmaafTyRKjQ==", "room"=>{"name"=>"hogehogehogehoge", "user_ids"=>["1", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 127711ms (ActiveRecord: 0.6ms | Allocations: 1958253)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-01 12:30:08 +0900
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  
+SyntaxError (/Users/masakazu/projects/chat-app/app/controllers/rooms_controller.rb:20: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/rooms_controller.rb:20: syntax error, unexpected end-of-input, expecting end
+app/controllers/rooms_controller.rb:20: syntax error, unexpected end-of-input, expecting end
+app/controllers/rooms_controller.rb:20: syntax error, unexpected end-of-input, expecting end
+Started GET "/rooms/new" for ::1 at 2021-03-01 12:30:52 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1431)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 11.5ms | ActiveRecord: 6.6ms | Allocations: 21249)
+
+
+Started POST "/rooms" for ::1 at 2021-03-01 12:31:07 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"OevWfdH/LceR4t3EC7R1JCjU1NHdlvxQkV1StOFZ5aFMS8pWwmbXo43xJGlpFQI9ZGw0q4kDgF01I/DzF8vWJw==", "room"=>{"name"=>"新規ルーム１", "user_ids"=>["1", "2"]}, "commit"=>"部屋を作成する"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 0.7ms | Allocations: 110080)
+
+
+  
+NameError (undefined local variable or method `room_params' for #<RoomsController:0x00007f8e32b76bd8>
+Did you mean?  rooms_path):
+  
+app/controllers/rooms_controller.rb:8:in `create'
+Started GET "/rooms/new" for ::1 at 2021-03-01 12:35:01 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1431)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 11.2ms | ActiveRecord: 25.9ms | Allocations: 20255)
+
+
+Started POST "/rooms" for ::1 at 2021-03-01 12:35:05 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"R+fp7Q0P3e8zx4mh5z61b1+Kb7EGvQWqUZZ1py7IbQgyR/XGHpYniy/UcAyFn8J2EzKPy1Ioeaf16Nfg2Fpejg==", "room"=>{"name"=>"macmac", "user_ids"=>["1", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:9:in `create'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('macmac', '2021-03-01 03:35:05.987205', '2021-03-01 03:35:05.987205')[0m
+  ↳ app/controllers/rooms_controller.rb:9:in `create'
+  [1m[36mRoomUser Create (3.4ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, 1, '2021-03-01 03:35:05.989304', '2021-03-01 03:35:05.989304')[0m
+  ↳ app/controllers/rooms_controller.rb:9:in `create'
+  [1m[36mRoomUser Create (0.2ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, 2, '2021-03-01 03:35:05.993724', '2021-03-01 03:35:05.993724')[0m
+  ↳ app/controllers/rooms_controller.rb:9:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:9:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 7.9ms | Allocations: 18088)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:35:05 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.5ms | Allocations: 185)
+  Rendered messages/_main_chat.html.erb (Duration: 0.2ms | Allocations: 138)
+  Rendered messages/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 871)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.4ms | Allocations: 9705)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:35:23 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.6ms | Allocations: 8430)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:35:24 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.4ms | Allocations: 8437)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:35:25 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 1.1ms | Allocations: 8414)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:35:29 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.6ms | Allocations: 8405)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:35:30 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.2ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.6ms | Allocations: 8428)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:35:31 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.6ms | Allocations: 8422)
+
+
