@@ -1409,3 +1409,68 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 1.7ms | Allocations: 9484)
 
 
+Started GET "/" for ::1 at 2021-03-01 12:47:58 +0900
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 8.9ms | Allocations: 8241)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 8567)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 20.2ms | ActiveRecord: 1.1ms | Allocations: 24506)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:48:00 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.8ms | Allocations: 1130)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 1.3ms | Allocations: 9416)
+
+
+Started GET "/users/2/edit" for ::1 at 2021-03-01 12:48:02 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1235)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.4ms | Allocations: 10069)
+
+
+Started PATCH "/users/2" for ::1 at 2021-03-01 12:48:05 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"3oPUAmJAQU5HaTKeabLO8++jlTSkOq4h9rqDRifkCFSH2gSmiPlEiyEjEG+j/UO15h7aO0H8gS1p6VmMZj7Rfg==", "user"=>{"name"=>"mac", "email"=>"macmac@mac"}, "commit"=>"Update", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 2866)
+
+
+Started GET "/" for ::1 at 2021-03-01 12:48:05 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:11
+  Rendered messages/_side_bar.html.erb (Duration: 1.8ms | Allocations: 1130)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 1.3ms | Allocations: 9432)
+
+
+Started GET "/users/2/edit" for ::1 at 2021-03-01 12:48:07 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 1.0ms | Allocations: 719)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.7ms | Allocations: 8927)
+
+
